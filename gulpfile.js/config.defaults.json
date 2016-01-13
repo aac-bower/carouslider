@@ -1,0 +1,94 @@
+{
+    "name": "app",
+    "build": {
+        "production": true,
+        "pathCorrection": {
+            "templatecache": {
+                "prefix": "app/"
+            },
+            "assetPath": {
+                "glob": "./build/**/*.css",
+                "search": "../asset/",
+                "replace": "../"
+            },
+            "assetPathProd": {
+                "glob": "./build/**/*.css",
+                "search": "/asset/",
+                "replace": "/dist/asset/"
+            },
+            "cssPath": {
+                "glob": "./build/index.html",
+                "search": "href=\"css/",
+                "replace": "href=\"asset/css/"
+            }
+        },
+        "templatecacheTmpFile": "templates.js"
+    },
+    "dir": {
+        "src": "./src",
+        "app": "./src/app",
+        "tmp": "./.tmp",
+        "css": "./.tmp/css",
+        "data": "./data",
+        "asset": "./app/asset",
+        "image": "./app/asset/image",
+        "fonts": "./src/app/asset/fonts",
+        "bower_components": "./bower_components",
+        "build": {
+            "root":  "./build",
+            "src":   "./build/src",
+            "dist":  "./build/dist",
+            "app":   "./build/app",
+            "asset": "./build/asset",
+            "css":   "./build/asset/css",
+            "fonts": "./build/dist/asset/fonts",
+            "image": "./build/dist/asset/image"
+        }
+    },
+    "path": {
+        "indexHtml": "./src/index.html",
+        "styleScss": "./src/index.style.scss",
+        "vendorScss": "./src/index.vendor.scss",
+        "bower": "./bower.json"
+    },
+    "glob": {
+        "asset": [ 
+            "./src/asset/**/*" 
+        ],
+        "image": [ 
+            "./src/asset/image/**" 
+        ],   
+        "fonts": [ 
+            "./src/asset/fonts/**" 
+        ],    
+        "sass": [ 
+            "./src/app/**/*.scss" 
+        ],    
+        "template": [ 
+            "./src/app/**/*.html" 
+        ], 
+        "src": [ 
+            "./src/**/*" 
+        ],     
+        "css": [ 
+            "./.tmp/css/**/*.css" 
+        ],
+        "bowerFonts": [
+            "./bower_components/font-awesome/fonts/*.{eot,svg,ttf,woff,woff2}",
+            "./bower_components/bootstrap-sass/assets/fonts/bootstrap/*.{eot,svg,ttf,woff,woff2}"
+        ],
+        "injectJs": [
+            "!./src/app/**/*.spec.js",         
+            "!./src/app/**/*.mock.js",         
+            "./src/app/**/*.module.js",        
+            "./src/app/**/*.!(module).js",     
+            "./src/app/**/*.js"                
+        ] 
+    },
+    "filter": {
+        "font": "**/*.{eot,svg,ttf,woff,woff2}"
+    },
+    "inject": {
+        "ignorePath": "src"
+    }
+}

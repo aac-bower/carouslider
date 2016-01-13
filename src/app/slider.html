@@ -1,0 +1,15 @@
+<section class="aac-slider">
+ <section 
+  ng-repeat="slide in activeSlides"
+  ng-class="{ 'active': slide.active }" 
+  class="slide-container js-slide"
+  data-index="$index"
+ >
+  <section style="
+  	background: url('{{slide.imgUrl}}');
+  	"
+  	class="{{slide.title}}">
+  </section>
+
+ </section>
+</section>

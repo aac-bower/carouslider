@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>aac-slider</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- build:css({.tmp/,bower_components}) dist/vendor.min.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <link rel="stylesheet" href="css/vendor.css">
+        <!-- endbuild -->
+
+        <!-- build:css(.tmp/) dist/style.min.css -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- endbuild -->
+    </head>
+    <body ng-app="aac.slider">
+
+        <!-- This file should represent how someone can use your component. So which scripts to ref and what html is needed. -->
+        <!-- Note that the final version of this will be in the build folder after you run: $ gulp build -->
+        <section class="aw-webapp">
+            <slider slides="[
+                { 
+                    title: 'slide1',
+                    imgUrl: 'asset/image/slide1.jpg'
+                },
+                { 
+                    title: 'slide2',
+                    imgUrl: 'asset/image/slide2.jpg'
+                },
+                { 
+                    title: 'slide3',
+                    imgUrl: 'asset/image/slide3.jpg'
+                },
+                { 
+                    title: 'slide4',
+                    imgUrl: 'asset/image/slide4.jpg'
+                },
+                { 
+                    title: 'slide5',
+                    imgUrl: 'asset/image/slide5.jpg'
+                },
+                { 
+                    title: 'slide6',
+                    imgUrl: 'asset/image/slide6.jpg'
+                }
+            ]"></slider>    
+            
+        </section>
+
+
+        <!-- build:js dist/vendor.min.js -->
+        <!-- bower:js -->
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+
+        <!-- build:js dist/app.min.js -->
+        <!-- inject:js -->
+        <script src="app/slider.module.js"></script>
+        <script src="app/slider.directive.js"></script>
+        <!-- endinject -->
+        <!-- endbuild -->
+
+    </body>
+</html>
