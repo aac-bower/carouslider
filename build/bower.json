@@ -1,0 +1,23 @@
+{
+  "name": "aac-carouslider",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": [
+    "build/dist/app.min.js"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "*.sublime-project",
+    "*.sublime-workspace",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "jquery": "~2.2.0"
+  },
+  "devDependencies": {
+    "bootstrap-sass": "~3.3.6"
+  }
+}
