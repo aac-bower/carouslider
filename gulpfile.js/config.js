@@ -19,6 +19,7 @@ module.exports = function( gulp, plugin ) {
     // console.log( _config );
 
     function getTask( name ) {
+        console.log(name,' is stupid!');
         return require('./task/' + name + '.js')( gulp, plugin, config );
     }
 

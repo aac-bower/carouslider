@@ -1,15 +1,21 @@
-<section class="aac-slider">
+<section
+	class="aac-slider" 
+	ng-mouseleave="deactivate()"
+	>
  <section 
-  ng-repeat="slide in activeSlides"
-  ng-class="{ 'active': slide.active }" 
-  class="slide-container js-slide"
-  data-index="$index"
- >
-  <section style="
+  ng-repeat="slide in activeSlides" 
+  ng-mouseenter="activate($index)"
+  class="{{slide.state}} {{slide.animationState}} {{slide.title}} slide js-slide"
+  style="
   	background: url('{{slide.imgUrl}}');
-  	"
-  	class="{{slide.title}}">
-  </section>
-
+  	">
+  	<div class="slide-text-container">
+	  	<div class="slide-text">
+	  		{{slide.text}}
+	  	</div>
+	  	<div class="slide-text2">
+	  		Természet Tudatos Tervezés
+	  	</div>
+  	</div>
  </section>
 </section>

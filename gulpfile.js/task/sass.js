@@ -22,7 +22,7 @@ module.exports = function (gulp, plugin, config) {
             // make sure that if we get error (invalid sass) that we don't break out of the server
             .pipe( plugin.plumber( { errorHandler: config.error.handler } ) )
             // compile it to css and set some settings for error handling
-            .pipe( plugin.sass() )
+            .pipe( plugin.sass({includePaths: ['./src']}) )
             // rename the file to 'style'
             .pipe( plugin.rename( { basename: 'style' } ) )
             // write the sourcemap into the stream
