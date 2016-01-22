@@ -3,7 +3,8 @@
   "version": "0.1.2",
   "license": "MIT",
   "main": [
-    "build/dist/app.min.js"
+    "build/dist/app.min.js",
+    "build/dist/css.min.js"
   ],
   "ignore": [
     "node_modules",

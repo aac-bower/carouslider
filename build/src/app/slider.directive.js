@@ -16,12 +16,13 @@
 			templateUrl: 'app/slider.html',
 			replace: true,
 			scope: {
-				slides:'='
+				slides:'=',
+				height:'=',
+				interval:'='
 			},
 			compile: function () {
 				var changeIndexActive = 0;
 				var changeIndexInactive = 0;
-				var changeInterval = 6500;
 
 				function getSlideState(slideIndex, activeSlideIndex) {
 					if (slideIndex === activeSlideIndex) {
@@ -102,7 +103,7 @@
 							},400);
 						};
 
-						var changing = $interval(scope.changeSlide, changeInterval);
+						var changing = $interval(scope.changeSlide, scope.interval);
 
 						scope.activate = function (activeSlideIndex) {
 							$interval.cancel(changing);
@@ -113,7 +114,7 @@
 						};
 
 						scope.deactivate = function() {
-							changing = $interval(scope.changeSlide, changeInterval);
+							changing = $interval(scope.changeSlide, scope.interval);
 
 							for (var slideIndex = scope.activeSlides.length-1; slideIndex >= 0; slideIndex--) {
 								scope.activeSlides[slideIndex].state = '';
