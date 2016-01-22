@@ -1,21 +1,18 @@
 /*
-    module: aac.slider
+	module: aac.slider
 */
 
-(function() {
-    'use strict';
+(function () {
+	'use strict';
 
-    // templates modules to hold all template cache later
-    angular.module('templates', []);
+	// templates modules to hold all template cache later
+	angular.module('templates', []);
 
-    angular
-        .module(
-            'aac.slider', 
-            [
-                'templates',
-
-                
-            ]
-        );
-
+	angular
+		.module(
+			'aac.slider',
+			[
+				'templates'
+			]
+		);
 })();

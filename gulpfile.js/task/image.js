@@ -7,11 +7,11 @@ module.exports = function (gulp, plugin, config) {
 
         if ( config.build.production ) {
             return gulp.src( config.glob.image )
-            	.pipe( plugin.imagemin( {
-    		            progressive: true,
-    		            svgoPlugins: [ {removeViewBox: false} ],
-    		            use: [ plugin.pngquant() ]
-    		        } ) )
+            	// .pipe( plugin.imagemin( {
+    		       //      progressive: true,
+    		       //      svgoPlugins: [ {removeViewBox: false} ],
+    		       //      use: [ plugin.pngquant() ]
+    		       //  } ) )
                 .pipe( gulp.dest( config.dir.build.image ) );
         } else {
             return true;

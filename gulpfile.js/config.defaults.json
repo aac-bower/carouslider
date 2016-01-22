@@ -12,7 +12,7 @@
                 "replace": "../"
             },
             "assetPathProd": {
-                "glob": "./build/**/*.css",
+                "glob": "./build/**/*.{html,css,js}",
                 "search": "/asset/",
                 "replace": "/dist/asset/"
             },
