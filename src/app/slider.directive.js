@@ -17,12 +17,14 @@
 			replace: true,
 			scope: {
 				slides:'=',
-				height:'=',
-				interval:'='
+				interval:'=',
+				breakpoint: '='
 			},
 			compile: function () {
+
 				var changeIndexActive = 0;
 				var changeIndexInactive = 0;
+				var carousliding = false;
 
 				function getSlideState(slideIndex, activeSlideIndex) {
 					if (slideIndex === activeSlideIndex) {
@@ -70,9 +72,23 @@
 
 				return {
 					pre: function (scope, element) {
+
+						console.log(scope.breakpoint);
+						// if (!scope.breakpoint) { scope.breakpoint = 768; }
+						scope.breakpoint = scope.breakpoint ? scope.breakpoint:768;
+
 						scope.slidesLength = scope.slides.length;
+
+
+						if (window.innerWidth > scope.breakpoint) {
 						scope.activeSlides = scope.slides.splice(0,4);
 						scope.inactiveSlides = scope.slides.splice(0,scope.slidesLength-4);
+						carousliding = true;
+						} else {
+							scope.activeSlides = scope.slides.splice(0,1);
+							scope.inactiveSlides = scope.slides.splice(0,scope.slidesLength-1);
+						}
+
 					},
 					post: function (scope, element) {
 						var timeItOut;
@@ -107,17 +123,20 @@
 
 						scope.activate = function (activeSlideIndex) {
 							$interval.cancel(changing);
-
-							for (var slideIndex = scope.activeSlides.length-1; slideIndex >= 0; slideIndex-=1) {
-								scope.activeSlides[slideIndex].state = getSlideState(slideIndex, activeSlideIndex);
+							if (carousliding) {
+								for (var slideIndex = scope.activeSlides.length-1; slideIndex >= 0; slideIndex-=1) {
+									scope.activeSlides[slideIndex].state = getSlideState(slideIndex, activeSlideIndex);
+								}
 							}
 						};
 
 						scope.deactivate = function() {
 							changing = $interval(scope.changeSlide, scope.interval);
 
-							for (var slideIndex = scope.activeSlides.length-1; slideIndex >= 0; slideIndex--) {
-								scope.activeSlides[slideIndex].state = '';
+							if (carousliding) {
+								for (var slideIndex = scope.activeSlides.length-1; slideIndex >= 0; slideIndex--) {
+									scope.activeSlides[slideIndex].state = '';
+								}
 							}
 						};
 					}
