@@ -12,7 +12,8 @@
     "*.sublime-project",
     "*.sublime-workspace",
     "gulpfile.js",
-    "package.json"
+    "package.json",
+    "src"
   ],
   "dependencies": {
     "angular": "~1.4.8",

@@ -1,6 +1,6 @@
 {
   "name": "aac-carouslider",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "license": "MIT",
   "main": [
     "build/dist/app.min.js",
@@ -12,7 +12,8 @@
     "*.sublime-project",
     "*.sublime-workspace",
     "gulpfile.js",
-    "package.json"
+    "package.json",
+    "src"
   ],
   "dependencies": {
     "angular": "~1.4.8",
