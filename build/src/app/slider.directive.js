@@ -16,9 +16,9 @@
 			templateUrl: 'app/slider.html',
 			replace: true,
 			scope: {
-				slides:'=',
-				interval:'=',
-				breakpoint: '='
+				slides:'=?',
+				interval:'=?',
+				breakpoint: '=?'
 			},
 			compile: function () {
 
@@ -73,14 +73,12 @@
 				return {
 					pre: function (scope, element) {
 
-						console.log(scope.breakpoint);
 						// if (!scope.breakpoint) { scope.breakpoint = 768; }
 						scope.breakpoint = scope.breakpoint ? scope.breakpoint:768;
 
 						scope.slidesLength = scope.slides.length;
 
-
-						if (window.innerWidth > scope.breakpoint) {
+						if (window.innerWidth > scope.breakpoint && scope.slidesLength > 4) {
 						scope.activeSlides = scope.slides.splice(0,4);
 						scope.inactiveSlides = scope.slides.splice(0,scope.slidesLength-4);
 						carousliding = true;

@@ -1,12 +1,12 @@
 <section
 	class="aac-slider" 
 	ng-mouseleave="deactivate()"
-	style="height: {{height}}px;"
 	>
  <section 
-  ng-repeat="slide in activeSlides" 
+  ng-repeat="slide in activeSlides"
   ng-mouseenter="activate($index)"
-  class="{{slide.state}} {{slide.animationState}} {{slide.title}} slide js-slide"
+  class="{{slide.state}} {{slide.animationState}} slide-{{$index+1}} slide js-slide"
+  ng-class="{'soloSlide': activeSlides.length == 1}"
   style="
   	background-image: url('{{slide.imgUrl}}');
   	">

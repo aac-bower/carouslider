@@ -16,15 +16,16 @@
 			templateUrl: 'app/slider.html',
 			replace: true,
 			scope: {
-				slides:'=',
-				interval:'=',
-				breakpoint: '='
+				slides:'=?',
+				interval:'=?',
+				breakpoint: '=?'
 			},
 			compile: function () {
 
 				var changeIndexActive = 0;
 				var changeIndexInactive = 0;
 				var carousliding = false;
+				var breakCarousliding = false;
 
 				function getSlideState(slideIndex, activeSlideIndex) {
 					if (slideIndex === activeSlideIndex) {
@@ -73,14 +74,16 @@
 				return {
 					pre: function (scope, element) {
 
-						console.log(scope.breakpoint);
 						// if (!scope.breakpoint) { scope.breakpoint = 768; }
 						scope.breakpoint = scope.breakpoint ? scope.breakpoint:768;
 
 						scope.slidesLength = scope.slides.length;
 
+						if (scope.slidesLength == 1) {
+							breakCarousliding = true;
+						}
 
-						if (window.innerWidth > scope.breakpoint) {
+						if (window.innerWidth > scope.breakpoint && scope.slidesLength > 4) {
 						scope.activeSlides = scope.slides.splice(0,4);
 						scope.inactiveSlides = scope.slides.splice(0,scope.slidesLength-4);
 						carousliding = true;
@@ -91,6 +94,11 @@
 
 					},
 					post: function (scope, element) {
+
+						if (breakCarousliding == true) {
+							return;
+						}
+
 						var timeItOut;
 						var timeItOut2;
 
