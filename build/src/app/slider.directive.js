@@ -25,6 +25,7 @@
 				var changeIndexActive = 0;
 				var changeIndexInactive = 0;
 				var carousliding = false;
+				var breakSliding = false;
 
 				function getSlideState(slideIndex, activeSlideIndex) {
 					if (slideIndex === activeSlideIndex) {
@@ -78,6 +79,10 @@
 
 						scope.slidesLength = scope.slides.length;
 
+						if (scope.slidesLength == 1) {
+							breakSliding = true;
+						}
+
 						if (window.innerWidth > scope.breakpoint && scope.slidesLength > 4) {
 						scope.activeSlides = scope.slides.splice(0,4);
 						scope.inactiveSlides = scope.slides.splice(0,scope.slidesLength-4);
@@ -89,6 +94,11 @@
 
 					},
 					post: function (scope, element) {
+
+						if (breakSliding == true) {
+							return;
+						}
+
 						var timeItOut;
 						var timeItOut2;
 
